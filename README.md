@@ -20,6 +20,12 @@ console.log(units.format(address.balance, { to: Ether, from: Wei, decimals: 4 })
 
 ## API
 
+### Utils
+
+### `const str = utils.format(nullish|string|Buffer|number|BigInt)`
+
+Format any of the above types as a eth hex string.
+
 ### Units
 
 The units module contains a list of constants as well as helper functions to
