@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "nanoassert": "^2.0.0"
+  },
+  "devDependencies": {
+    "pretty-string-diff": "^1.0.2"
+  }
+}
