@@ -11,6 +11,20 @@ function format (value) {
   throw new Error('Unknown data type')
 }
 
+async function mined (tx, eth) {
+  // eslint-disable-next-line
+  return new Promise(async (resolve, reject) => {
+    const unlisten = await eth.subscribe(eth.getTransactionReceipt(tx), function (err, res) {
+      if (err) return
+
+      unlisten()
+      if (res.status === '0x1') return resolve(res)
+      return reject(new Error(res))
+    })
+  })
+}
+
 module.exports = {
-  format
+  format,
+  mined
 }

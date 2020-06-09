@@ -26,6 +26,10 @@ console.log(units.format(address.balance, { to: Ether, from: Wei, decimals: 4 })
 
 Format any of the above types as a eth hex string.
 
+### `const receipt = async utils.mined(txHash, eth)`
+
+Wait for a transaction to be mined
+
 ### Units
 
 The units module contains a list of constants as well as helper functions to
