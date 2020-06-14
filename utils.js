@@ -4,8 +4,9 @@ function format (value) {
     if (value[1] === 'x') return value
     return '0x' + value
   }
-  if (Buffer.isBuffer(value)) return '0x' + value.toString('hex')
-  if (typeof value === 'number') return '0x' + value.toString(16)
+  if (typeof value === 'boolean') return '0x' + (value ? '1' : '0')
+  if (Buffer.isBuffer(value)) return '0x' + value.toString('hex').replace(/^0*/, '')
+  if (typeof value === 'number' && Number.isInteger(value)) return '0x' + value.toString(16)
   if (typeof value === 'bigint') return '0x' + value.toString(16)
 
   throw new Error('Unknown data type')
