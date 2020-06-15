@@ -2,6 +2,8 @@ const diff = require('pretty-string-diff')
 const { Ether, Wei, GWei, format, parse } = require('./units')
 const utils = require('./utils')
 
+console.log(diff(format(1000000000n, { from: Wei, to: GWei }), '1'))
+
 console.log(diff(utils.format(false), '0x0'))
 console.log(diff(utils.format(true), '0x1'))
 console.log(diff(utils.format('ff00ff'), '0xff00ff'))

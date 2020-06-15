@@ -1,3 +1,5 @@
+/* globals BigInt */
+
 const assert = require('nanoassert')
 const Wei = 1n
 const KWei = 1000n * Wei
@@ -46,7 +48,7 @@ function convertLossy (value, from, to = Wei) {
   return Number(value) * Number(to) / Number(from)
 }
 
-function format (value, { from, to = Wei, decimals = undefined }) {
+function format (value, { from = Wei, to = Wei, decimals = undefined }) {
   value = value.toString()
   var [numerator = '0', fraction = '0'] = value.split('.')
 
@@ -60,11 +62,11 @@ function format (value, { from, to = Wei, decimals = undefined }) {
   // Scale down
   if (to > from) {
     const rate = Math.log10(Number(to / from))
-    fraction = numerator.slice(0, rate).padStart(rate, '0') + fraction
-    numerator = numerator.slice(rate).padStart(1, '0')
+    fraction = numerator.slice(-rate).padStart(rate, '0') + fraction
+    numerator = numerator.slice(0, -rate).padStart(1, '0')
   }
 
-  fraction = fraction.slice(0, decimals).padEnd(numerator.length, '0')
+  fraction = fraction.slice(0, decimals).padEnd(decimals, '0')
 
   return [numerator, fraction]
     .join('.')
