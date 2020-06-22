@@ -57,7 +57,7 @@ Lossless unit conversion to `BigInt`. Asserts that no precision is lost.
 
 Lossy unit conversion to `Number`. Not suitable to exact calculations.
 
-### `const str = units.format(value, { from, to = Wei, decimals = null })`
+### `const str = units.format(value, { from = Wei, to = Wei, decimals = null })`
 
 Format `BigInt` as a string with `from` basis to `to` basis. Optional set the
 number of decimals similar to `toFixed`
