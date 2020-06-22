@@ -1,6 +1,6 @@
 /* globals BigInt */
-
 const assert = require('nanoassert')
+
 const Wei = 1n
 const KWei = 1000n * Wei
 const MWei = 1000n * KWei
@@ -49,6 +49,11 @@ function convertLossy (value, from, to = Wei) {
 }
 
 function format (value, { from = Wei, to = Wei, decimals = undefined }) {
+  assert(['number', 'string', 'bigint'].includes(typeof value), 'value must be number, bigint or string')
+  assert(typeof from === 'bigint', 'from must be bigint (valid eth unit)')
+  assert(typeof to === 'bigint', 'from must be bigint (valid eth unit)')
+  assert(decimals == null ? true : Number.isInteger(decimals), 'decimals must be integer of given')
+
   value = value.toString()
   var [numerator = '0', fraction = '0'] = value.split('.')
 
@@ -77,6 +82,9 @@ function format (value, { from = Wei, to = Wei, decimals = undefined }) {
 }
 
 function parse (value, { from, to = Wei }) {
+  assert(['number', 'string', 'bigint'].includes(typeof value), 'value must be number, bigint or string')
+  assert(typeof from === 'bigint', 'from must be bigint (valid eth unit)')
+  assert(typeof to === 'bigint', 'from must be bigint (valid eth unit)')
   assert(to <= from, 'Cannot convert to lower precision')
 
   value = value.toString()
