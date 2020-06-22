@@ -35,6 +35,7 @@ console.log(diff(format(1, { from: Ether, to: GWei }), '1000000000'))
 console.log(diff(format('1.234567891234567891234567', { from: Ether, to: Ether }), '1.234567891234567891234567'))
 console.log(diff(format('1.234567891234567891234567', { from: Ether, to: GWei }), '1234567891.234567891234567'))
 console.log(diff(format('1.234567891234567891234567', { from: Ether, to: Wei }), '1234567891234567891.234567'))
+console.log(diff(format(112199967223357411468n, { to: Ether, decimals: 4 }), '112.1999'))
 
 console.log(diff(format('1.234567891234567', { from: Ether, to: Ether }), '1.234567891234567'))
 console.log(diff(format('1.234567891234567', { from: Ether, to: GWei }), '1234567891.234567'))
@@ -50,4 +51,5 @@ console.log(diff(format('0.1234', { from: Wei, to: Wei, decimals: 2 }), '0.12'))
 console.log(diff(format('0.12345', { from: Wei, to: Wei, decimals: 4 }), '0.1234'))
 
 console.log(parse('0.00002', { from: Ether }))
+console.log(parse(format(112199967223357411468n, { to: Ether }), { from: Ether }) === 112199967223357411468n)
 console.log(1e18)
