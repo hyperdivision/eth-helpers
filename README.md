@@ -1,4 +1,4 @@
-# `eth-utils`
+# `eth-helpers`
 
 > Kitchensink of ethereum utils
 
@@ -7,7 +7,7 @@
 ### Units
 
 ```js
-const units = require('eth-utils/units')
+const units = require('eth-helpers/units')
 const { Wei, Ether, GWei } = units
 
 const gasPrice = 16n * GWei
@@ -69,7 +69,7 @@ Parse a string number into `BigInt` with specified basis.
 ## Install
 
 ```sh
-npm install eth-utils
+npm install eth-helpers
 ```
 
 ## License
