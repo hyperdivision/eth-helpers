@@ -1,6 +1,6 @@
 {
   "name": "eth-helpers",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Kitchensink of ethereum utils",
   "main": "index.js",
   "dependencies": {
@@ -17,9 +17,7 @@
     "type": "git",
     "url": "git+https://github.com/hyperdivision/eth-helpers.git"
   },
-  "keywords": [
-
-  ],
+  "keywords": [],
   "author": "Emil Bay <github@tixz.dk>",
   "license": "ISC",
   "bugs": {
