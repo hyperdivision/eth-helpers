@@ -1,10 +1,29 @@
 {
   "name": "eth-helpers",
   "version": "0.0.0",
+  "description": "Kitchensink of ethereum utils",
+  "main": "index.js",
   "dependencies": {
     "nanoassert": "^2.0.0"
   },
   "devDependencies": {
-    "pretty-string-diff": "^1.0.2"
-  }
+    "pretty-string-diff": "^1.0.2",
+    "tape": "^5.0.0"
+  },
+  "scripts": {
+    "test": "tape test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hyperdivision/eth-helpers.git"
+  },
+  "keywords": [
+
+  ],
+  "author": "Emil Bay <github@tixz.dk>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hyperdivision/eth-helpers/issues"
+  },
+  "homepage": "https://github.com/hyperdivision/eth-helpers#readme"
 }
