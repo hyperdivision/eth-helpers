@@ -1,4 +1,6 @@
 {
+  "name": "eth-helpers",
+  "version": "0.0.0",
   "dependencies": {
     "nanoassert": "^2.0.0"
   },
