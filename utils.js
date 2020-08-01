@@ -28,7 +28,7 @@ async function mined (tx, eth) {
 
 const parse = {
   boolean (str) { return str === '0x1' },
-  bytes (str) { return Buffer.from(str.slice(str[1] === 'x' ? 2 : 0, 'hex')) },
+  bytes (str) { return Buffer.from(str.slice(str[1] === 'x' ? 2 : 0), 'hex') },
   number (str) { return parseInt(str.slice(2), 16) },
   string (str) { return parse.bytes(str).toString() },
   bigint (str) { return BigInt(str) }
