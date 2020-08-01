@@ -34,6 +34,8 @@ Utilities exist for converting from hex strings to native data types:
 * `const number = utils.parse.number(hex)`
 * `const bigint = utils.parse.bigint(hex)`
 * `const buf = utils.parse.bytes(hex)`
+* `const buf = utils.parse.address(hex)`
+* `const buf = utils.parse.uint256(hex)`
 * `const str = utils.parse.string(hex)`
 
 ### `const receipt = async utils.mined(txHash, eth)`

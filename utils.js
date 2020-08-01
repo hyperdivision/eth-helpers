@@ -45,7 +45,6 @@ function fixedSize (str, bytes) {
   return buf
 }
 
-
 module.exports = {
   format,
   parse,
