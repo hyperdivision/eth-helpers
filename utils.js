@@ -29,10 +29,22 @@ async function mined (tx, eth) {
 const parse = {
   boolean (str) { return str === '0x1' },
   bytes (str) { return Buffer.from(str.slice(str[1] === 'x' ? 2 : 0), 'hex') },
+  address (str) { return fixedSize(str, 20) },
+  uint256 (str) { return fixedSize(str, 32) },
   number (str) { return parseInt(str.slice(2), 16) },
   string (str) { return parse.bytes(str).toString() },
   bigint (str) { return BigInt(str) }
 }
+
+function fixedSize (str, bytes) {
+  const data = str.slice(str[1] === 'x' ? 2 : 0)
+  const length = Math.ceil(data.length / 2)
+  const offset = bytes - length
+  const buf = Buffer.alloc(bytes)
+  buf.write(data, offset, length, 'hex')
+  return buf
+}
+
 
 module.exports = {
   format,
