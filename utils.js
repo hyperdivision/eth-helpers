@@ -1,16 +1,26 @@
 /* global BigInt */
+const assert = require('nanoassert')
 function format (value) {
   if (value == null) return null
   if (typeof value === 'string') {
     if (value[1] === 'x') return value
     return '0x' + value
   }
-  if (typeof value === 'boolean') return '0x' + (value ? '1' : '0')
-  if (Buffer.isBuffer(value)) return '0x' + value.toString('hex').replace(/^0*/, '')
-  if (typeof value === 'number' && Number.isInteger(value) && value >= 0) return '0x' + value.toString(16)
-  if (typeof value === 'bigint') return '0x' + value.toString(16)
+  if (typeof value === 'boolean') return format.boolean(value)
+  if (Buffer.isBuffer(value)) return format.bytes(value)
+  if (typeof value === 'number') return format.number(value)
+  if (typeof value === 'bigint') return format.bigint(value)
 
   throw new Error('Unknown data type')
+}
+
+format.boolean = function (bool) { return bool ? '0x1' : '0x0' }
+format.bytes = function (buf) { return '0x' + buf.toString('hex').replace(/^0*/, '') }
+format.address = function (buf) { return '0x' + buf.toString('hex').padStart(40, '0') }
+format.bigint = function (bigint) { return '0x' + bigint.toString(16) }
+format.number = function (num) {
+  assert(Number.isInteger(num) && num >= 0, 'Only encodes positive integers')
+  return '0x' + num.toString(16)
 }
 
 async function mined (tx, eth) {

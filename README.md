@@ -25,6 +25,13 @@ console.log(units.format(address.balance, { to: Ether, from: Wei, decimals: 4 })
 ### `const str = utils.format(nullish|string|Buffer|number|BigInt)`
 
 Format any of the above types as a eth hex string.
+Also has type specific functions to avoid guessing wrong:
+
+* `const hex = utils.format.boolean(bool)`
+* `const hex = utils.format.number(number)`
+* `const hex = utils.format.bigint(bigint)`
+* `const hex = utils.format.bytes(buf)`
+* `const hex = utils.format.address(buf)`
 
 ### Parsing
 
