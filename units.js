@@ -94,6 +94,6 @@ function parse (value, { from, to = Wei }) {
   const nTo = Math.log10(Number(to))
   const rate = nFrom - nTo
 
-  fraction = fraction.padEnd(rate, '0')
+  fraction = fraction.slice(0, nFrom).padEnd(nFrom, '0').padEnd(rate, '0')
   return BigInt(numerator + fraction) * to
 }
