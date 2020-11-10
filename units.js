@@ -45,7 +45,6 @@ function convert (value, from, to = Wei) {
 }
 
 function convertLossy (value, from, to = Wei) {
-  console.log(value, from, to)
   return Number(value) * Number(from) / Number(to)
 }
 
