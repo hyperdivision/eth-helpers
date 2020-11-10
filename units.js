@@ -41,11 +41,11 @@ module.exports = {
 
 function convert (value, from, to = Wei) {
   assert(to <= from, 'Cannot convert to lower precision')
-  return value * to / from
+  return value * from / to
 }
 
 function convertLossy (value, from, to = Wei) {
-  return Number(value) * Number(to) / Number(from)
+  return Number(value) * Number(from) / Number(to)
 }
 
 function format (value, { from = Wei, to = Wei, decimals = undefined }) {
